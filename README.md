@@ -14,7 +14,6 @@ As we want to first test the setup on local machine, we'll setup a [Minikue mult
 
 ```bash
 minikube start --nodes 2 -p minikube
-
 ```
 
 In order to properly support the required persistent volume claims for the
@@ -26,14 +25,21 @@ minikube addons enable default-storageclass
 minikube addons enable storage-provisioner
 ```
 
+For installing the elasticsearch chart, we are going to aid custom values to makesure high availability is applied, but still applicable for small-sized local-machine through nodeAffinity setup `antiAffinity: "soft"`
+
 ## Usage
 
-* Deploy Elasticsearch chart with the default values: `make install`
+* Setup multi-node minikube cluster: `make setup_minikube`
 
-* You can now setup a port forward to query Elasticsearch API:
+* Add helm-chart: `make add_helm`
 
-  ```
+* Deploy Elasticsearch chart: `make install`
+
+* Test Elasticsearch chat: `make test`
+
+* Try Elasticsearch API:
+
+  ```bash
   kubectl port-forward svc/elasticsearch-master 9200
   curl localhost:9200/_cat/indices
   ```
-
