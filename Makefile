@@ -8,6 +8,9 @@ setup_minikube:
 	minikube addons enable default-storageclass
 	minikube addons enable storage-provisioner
 
+add_helm:
+	helm repo add elastic https://helm.elastic.co
+
 install:
 	helm upgrade --wait --timeout=$(TIMEOUT) --install --values values.yaml $(RELEASE) helm-charts/elasticsearch/
 
