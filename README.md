@@ -1,6 +1,7 @@
 # picnic-in-elasticsearch
 
-In this demo, I am trying to deploy a 3 nodes Elasticsearch (7.8.1) cluster that is suitable for local through minikube, or public cloud
+In this demo, I am trying to deploy a 3 nodes Elasticsearch (7.8.1) cluster that is suitable for local through minikube, or public cloud.
+And, it's tested on mini_kube setup explained in the demo, and a 3-nodes standard GKE cluster.
 
 ## Walkthrough
 
